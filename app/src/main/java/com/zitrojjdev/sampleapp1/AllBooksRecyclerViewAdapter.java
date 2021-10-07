@@ -1,6 +1,7 @@
 package com.zitrojjdev.sampleapp1;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -61,6 +62,10 @@ public class AllBooksRecyclerViewAdapter extends RecyclerView.Adapter<AllBooksRe
             @Override
             public void onClick(View view) {
                 final int index = holder.getAdapterPosition();
+                Intent intent = new Intent(context, BookActivity.class);
+                intent.putExtra("position", position);
+                context.startActivity(intent);
+
                 Toast.makeText(context, listOfBooks.get(index).toString(), Toast.LENGTH_SHORT).show();
             }
         });

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BookActivity">
+
+    <TextView
+        android:id="@+id/titleBook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="title"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginVertical="10dp"/>
+    <ImageView
+        android:id="@+id/detailImgBook"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_below="@+id/titleBook"
+        android:background="@color/astronaut"
+        android:layout_centerHorizontal="true" />
+    <TextView
+        android:id="@+id/detailAuthor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="author"
+        android:layout_below="@+id/detailImgBook"
+        android:layout_centerHorizontal="true"
+        android:textSize="20sp"
+        android:layout_marginVertical="10dp" />
+    <TextView
+        android:id="@+id/detailDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="20dp"
+        android:layout_below="@+id/detailAuthor"
+        android:hint="description"
+        android:textSize="16sp"/>
+
+</RelativeLayout>

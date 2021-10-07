@@ -31,7 +31,7 @@
             android:layout_centerHorizontal="true"
             android:textStyle="bold"
             android:hint="Title"
-            android:textSize="20sp"/>
+            android:textSize="18sp"/>
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 
