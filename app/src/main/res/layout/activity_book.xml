@@ -39,5 +39,29 @@
         android:layout_below="@+id/detailAuthor"
         android:hint="description"
         android:textSize="16sp"/>
+    <Button
+        android:id="@+id/btnWantToRead"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add to want to read"
+        android:layout_marginHorizontal="20dp"
+        android:layout_below="@id/detailDescription"
+        android:layout_marginVertical="5dp"/>
+    <Button
+        android:id="@+id/btnCurrentlyReading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add to currently reading"
+        android:layout_marginHorizontal="20dp"
+        android:layout_below="@id/btnWantToRead"
+        android:layout_marginVertical="5dp"/>
+    <Button
+        android:id="@+id/btnAlreadyRead"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add to already read"
+        android:layout_marginHorizontal="20dp"
+        android:layout_below="@id/btnCurrentlyReading"
+        android:layout_marginVertical="5dp"/>
 
 </RelativeLayout>
