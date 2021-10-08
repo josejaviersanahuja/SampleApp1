@@ -29,6 +29,7 @@ public class SeeAllBooks extends AppCompatActivity {
         ArrayList<Book> books = new ArrayList<>();
 
         Util util = new Util();
+        util.setType("");
         books = util.getAllBooks();
         // adapter
         AllBooksRecyclerViewAdapter adapter = new AllBooksRecyclerViewAdapter(this);

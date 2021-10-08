@@ -1,6 +1,7 @@
 package com.zitrojjdev.sampleapp1;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -24,6 +26,7 @@ public class AllBooksRecyclerViewAdapter extends RecyclerView.Adapter<AllBooksRe
     // fields of this class
     private ArrayList<Book> listOfBooks = new ArrayList<>();
     private Context context;
+    private Util util = new Util();
 
 
     public AllBooksRecyclerViewAdapter(Context context) {
@@ -68,6 +71,70 @@ public class AllBooksRecyclerViewAdapter extends RecyclerView.Adapter<AllBooksRe
             }
         });
 
+        // onLongClickListener
+        holder.bookCard.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                final int index = holder.getAdapterPosition();
+                Book book = listOfBooks.get(index);
+                // alert modal screen
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("Options");
+                builder.setMessage("Choose an action");
+                builder.setPositiveButton("Remove", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        listOfBooks.remove(book);
+                        notifyDataSetChanged();
+                    }
+                });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+                builder.setCancelable(false);
+                switch (util.getType()){
+                    case "WantToReadBooks":
+                        builder.setNeutralButton("Move to current reading books", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                util.addCurrentlyReadingBook(book);
+                                listOfBooks.remove(book);
+                                notifyDataSetChanged();
+                            }
+                        });
+                        builder.create().show();
+                        break;
+                    case "AlreadyReadBooks":
+                        builder.setNeutralButton("Move to want to read books", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                util.addWantToReadBook(book);
+                                listOfBooks.remove(book);
+                                notifyDataSetChanged();
+                            }
+                        });
+                        builder.create().show();
+                        break;
+                    case "CurrentlyReadingBooks":
+                        builder.setNeutralButton("Move to already read books", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                util.addAlreadyReadBook(book);
+                                listOfBooks.remove(book);
+                                notifyDataSetChanged();
+                            }
+                        });
+                        builder.create().show();
+                        break;
+                    default: break;
+                }
+
+                return false;
+            }
+        });
         // Aquí añadimos la url Image usando una librería externa con Glide
         Glide.with(context)
                 .asBitmap()

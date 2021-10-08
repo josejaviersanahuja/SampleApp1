@@ -8,6 +8,7 @@ public class Util {
     private static ArrayList<Book> currentlyReadingBooks;
     private static ArrayList<Book> wantToReadBooks;
     private static ArrayList<Book> alreadyReadBooks;
+    private static String type ="";
 
     public Util() {
         if (allBooks == null){
@@ -59,6 +60,14 @@ public class Util {
     }
     public boolean removeWantToReadBook(Book book){
         return wantToReadBooks.remove(book);
+    }
+
+    public static void setType(String type) {
+        Util.type = type;
+    }
+
+    public static String getType() {
+        return type;
     }
 
     private static void initAllBooks(){

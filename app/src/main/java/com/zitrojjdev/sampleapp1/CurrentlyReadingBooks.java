@@ -24,6 +24,7 @@ public class CurrentlyReadingBooks extends AppCompatActivity {
         ArrayList<Book> books = new ArrayList<>();
 
         Util util = new Util();
+        util.setType("CurrentlyReadingBooks");
         books = util.getCurrentlyReadingBooks();
         // adapter
         AllBooksRecyclerViewAdapter adapter = new AllBooksRecyclerViewAdapter(this);

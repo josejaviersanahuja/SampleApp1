@@ -24,6 +24,7 @@ public class AlreadyReadBooks extends AppCompatActivity {
         ArrayList<Book> books = new ArrayList<>();
 
         Util util = new Util();
+        util.setType("AlreadyReadBooks");
         books = util.getAlreadyReadBooks();
         // adapter
         AllBooksRecyclerViewAdapter adapter = new AllBooksRecyclerViewAdapter(this);
