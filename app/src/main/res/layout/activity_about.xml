@@ -16,6 +16,20 @@
         android:textSize="24sp"
         android:textStyle="bold"
         android:layout_centerHorizontal="true"/>
-
+    <TextView
+        android:id="@+id/contentAbout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Here should be the content"
+        android:textSize="18sp"
+        android:layout_below="@+id/titleAbout"
+        android:layout_margin="20dp"/>
+    <Button
+        android:id="@+id/btnToWebSite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Visit My website"
+        android:layout_below="@id/contentAbout"
+        android:layout_marginHorizontal="20dp"/>
 
 </RelativeLayout>
