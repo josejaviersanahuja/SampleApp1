@@ -34,6 +34,8 @@ public class BookActivity extends AppCompatActivity {
         // back button?
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        overridePendingTransition(R.anim.in, R.anim.out);
+
         // initializing UI
         initWidgets();
 
@@ -244,4 +246,9 @@ public class BookActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.close_in, R.anim.close_out);
+    }
 }

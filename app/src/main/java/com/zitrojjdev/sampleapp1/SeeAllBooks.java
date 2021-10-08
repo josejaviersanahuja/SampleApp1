@@ -22,6 +22,8 @@ public class SeeAllBooks extends AppCompatActivity {
         // back button?
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        overridePendingTransition(R.anim.in, R.anim.out);
+
         // initializing
         booksRecView = findViewById(R.id.allBooks);
 
@@ -52,5 +54,11 @@ public class SeeAllBooks extends AppCompatActivity {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.close_in, R.anim.close_out);
     }
 }

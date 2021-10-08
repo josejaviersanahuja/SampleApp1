@@ -21,6 +21,9 @@ public class About extends AppCompatActivity {
         setContentView(R.layout.activity_about);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        overridePendingTransition(R.anim.in, R.anim.out);
+
         initWidgets();
 
         // set on click al btn
@@ -53,5 +56,11 @@ public class About extends AppCompatActivity {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.close_in, R.anim.close_out);
     }
 }

@@ -19,6 +19,8 @@ public class CurrentlyReadingBooks extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        overridePendingTransition(R.anim.in, R.anim.out);
+
         RecyclerView booksRecView = findViewById(R.id.currentlyReadingBooksRecView);
         // data array
         ArrayList<Book> books = new ArrayList<>();
@@ -47,5 +49,11 @@ public class CurrentlyReadingBooks extends AppCompatActivity {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.close_in, R.anim.close_out);
     }
 }

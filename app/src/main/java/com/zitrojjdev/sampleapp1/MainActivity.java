@@ -20,6 +20,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        overridePendingTransition(R.anim.in, R.anim.out);
+
         initialWidgets();
     }
 
@@ -66,6 +68,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             default:
                 System.out.println("NO ENTRO EN NINGUN LUGAR" + view.getId());
         }
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.close_in, R.anim.close_out);
     }
 }
 
