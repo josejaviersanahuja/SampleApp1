@@ -1,6 +1,9 @@
 package com.zitrojjdev.sampleapp1;
 
-public class Book {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Book implements Parcelable {
     private String name, author, imageURL, description;
     private int pages;
 
@@ -11,6 +14,26 @@ public class Book {
         this.description = description;
         this.pages = pages;
     }
+
+    protected Book(Parcel in) {
+        name = in.readString();
+        author = in.readString();
+        imageURL = in.readString();
+        description = in.readString();
+        pages = in.readInt();
+    }
+
+    public static final Creator<Book> CREATOR = new Creator<Book>() {
+        @Override
+        public Book createFromParcel(Parcel in) {
+            return new Book(in);
+        }
+
+        @Override
+        public Book[] newArray(int size) {
+            return new Book[size];
+        }
+    };
 
     public String getName() {
         return name;
@@ -61,5 +84,19 @@ public class Book {
                 ", description='" + description + '\'' +
                 ", pages=" + pages +
                 '}';
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(name);
+        parcel.writeString(author);
+        parcel.writeString(imageURL);
+        parcel.writeString(description);
+        parcel.writeInt(pages);
     }
 }

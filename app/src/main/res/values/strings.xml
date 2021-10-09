@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">SampleApp1</string>
+    <string name="names">The names of jj and nany</string>
+    <string name="book">The book passed to the about activity</string>
 </resources>

@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
 
@@ -46,7 +48,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(@NonNull View view) {
         switch(view.getId()){
             case R.id.aboutBtn:
+                // creating an arrayList to pass in the intent
+                ArrayList<String> array = new ArrayList<>();
+                array.add("jose javier");
+                array.add("ariannys");
+
+                // creating a book to pass
+                Book newBook = new Book(
+                        "passing objects",
+                        "zitrojj",
+                        "https://media2.giphy.com/media/3kQqYPyzGSQ6I/giphy.gif?cid=7028f486h2d362eiipaxprq2nam6suzselgmzr6365m1x8q7&rid=giphy.gif&ct=s",
+                        "It is is like this",
+                        100
+                );
+
+                //create the intent
                 Intent intentAbout = new Intent(MainActivity.this, About.class);
+
+                // passing the array list
+                intentAbout.putExtra(getString(R.string.names), array);
+
+                // passing the book to a bundle
+                Bundle bundle = new Bundle();
+                bundle.putParcelable(getString(R.string.book), newBook);
+
+                // passing the bundle to the intent
+                intentAbout.putExtra("bundle", bundle);
+
                 startActivity(intentAbout);
                 break;
             case R.id.seeAllBooksBtn:
