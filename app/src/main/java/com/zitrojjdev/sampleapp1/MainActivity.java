@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
 
-    private Button btnSeeAllBooks, btnCurrentlyReading, btnWantToRead, btnAlreadyRead, btnAbout;
+    private Button btnSeeAllBooks, btnCurrentlyReading, btnWantToRead, btnAlreadyRead, btnAbout, btnTest;
     private TextView mainActivityTitle;
 
     @Override
@@ -39,7 +39,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnSeeAllBooks.setOnClickListener(this);
         btnWantToRead = findViewById(R.id.wantToReadBtn);
         btnWantToRead.setOnClickListener(this);
-
+        btnTest = findViewById(R.id.testBtn);
+        btnTest.setOnClickListener(this);
         //textview
         mainActivityTitle = findViewById(R.id.titleMainActivity);
     }
@@ -92,6 +93,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.alreadyReadBtn:
                 Intent intentAlreadyRead = new Intent(MainActivity.this, AlreadyReadBooks.class);
                 startActivity(intentAlreadyRead);
+                break;
+            case R.id.testBtn:
+                Intent intentTest = new Intent(MainActivity.this, TestActivity.class);
+                //intentTest.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                intentTest.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity( intentTest);
                 break;
             default:
                 System.out.println("NO ENTRO EN NINGUN LUGAR" + view.getId());

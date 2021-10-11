@@ -67,6 +67,15 @@
             android:layout_marginHorizontal="40dp"
             android:layout_marginTop="20dp"
             android:text="About"/>
+        <Button
+            android:id="@+id/testBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/aboutBtn"
+            android:layout_centerHorizontal="true"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginTop="20dp"
+            android:text="Test"/>
 
 
 
